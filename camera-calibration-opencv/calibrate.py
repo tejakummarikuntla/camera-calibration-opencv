@@ -3,7 +3,6 @@ import cv2
 import glob
 import matplotlib.pyplot as plt
 import pickle
-
 # prepare object points, like (0,0,0), (1,0,0), (2,0,0) ....,(6,5,0)
 objp = np.zeros((6*8,3), np.float32)
 objp[:,:2] = np.mgrid[0:8, 0:6].T.reshape(-1,2)
@@ -22,7 +21,6 @@ for idx, fname in enumerate(images):
 
     # Find the chessboard corners
     ret, corners = cv2.findChessboardCorners(gray, (8,6), None)
-
     # If found, add object points, image points
     if ret == True:
         objpoints.append(objp)
