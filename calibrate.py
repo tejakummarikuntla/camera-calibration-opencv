@@ -44,13 +44,13 @@ ret, mtx, dist, rvecs, tvecs = cv2.calibrateCamera(objpoints, imgpoints, img_siz
 
 
 dst = cv2.undistort(img, mtx, dist, None, mtx)
-cv2.imwrite('calibration_wide/test_undist.jpg',dst)
+cv2.imwrite('calibration_wide/output/test_undist.jpg',dst)
 
 # Save the camera calibration result for later use (we won't worry about rvecs / tvecs)
 dist_pickle = {}
 dist_pickle["mtx"] = mtx
 dist_pickle["dist"] = dist
-pickle.dump( dist_pickle, open( "calibration_wide/wide_dist_pickle.p", "wb" ) )
+pickle.dump( dist_pickle, open( "calibration_wide/output/wide_dist_pickle.p", "wb" ) )
 #dst = cv2.cvtColor(dst, cv2.COLOR_BGR2RGB)
 # Visualize undistortion
 f, (ax1, ax2) = plt.subplots(1, 2, figsize=(20,10))
